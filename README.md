@@ -4,25 +4,33 @@ A custom Claude Code agent that takes screenshots of web pages and local HTML fi
 
 ## Install
 
-1. Copy `screenshot.py` somewhere on your PATH or a known location:
-   ```bash
-   cp screenshot.py ~/screenshot.py
-   ```
+### 1. Clone or download
 
-2. Copy `screenshot.md` to your Claude Code agents directory:
-   ```bash
-   cp screenshot.md ~/.claude/agents/screenshot.md
-   ```
+```bash
+git clone https://github.com/alexdobrenko/screenshot-agent.git
+cd screenshot-agent
+```
 
-3. Update the script path in `screenshot.md` to match where you put `screenshot.py`.
+### 2. Copy both files
 
-4. Install dependencies:
-   ```bash
-   pip install playwright Pillow
-   python -m playwright install chromium
-   ```
+```bash
+# Agent definition (Claude Code reads this)
+cp screenshot.md ~/.claude/agents/screenshot.md
 
-5. Restart Claude Code. The agent will be available as `subagent_type="screenshot"`.
+# Screenshot script (put it next to the agent file so it's easy to find)
+cp screenshot.py ~/.claude/agents/screenshot.py
+```
+
+### 3. Install dependencies
+
+```bash
+pip install playwright Pillow
+python -m playwright install chromium
+```
+
+### 4. Restart Claude Code
+
+The screenshot agent will be available in your next session. Try: "take a screenshot of https://example.com"
 
 ## Usage
 
